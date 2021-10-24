@@ -1,4 +1,5 @@
 public class Jornalero extends Empleado{
+    
     private double numHorasExtra;
 
     //constructor

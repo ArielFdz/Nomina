@@ -1,4 +1,5 @@
 public class Administrador extends Empleado{
+    
     private double incrementoSalario;
 
     //constructor

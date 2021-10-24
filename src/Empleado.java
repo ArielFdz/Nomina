@@ -1,4 +1,5 @@
 public class Empleado{
+    
     private String nombre;
     private double salario;
     private double numHorasTrabajadas;
@@ -44,5 +45,5 @@ public class Empleado{
     }
 
     //el main se transporta a la clase main, para tener un solo main en el programa
-    
+
 }
