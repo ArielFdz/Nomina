@@ -5,8 +5,8 @@ public class Jornalero extends Empleado {
         numHorasExtra=0;
     }
 
-    public void setNumHorasExtra(int horasExtras) {
-		this.numHorasExtra=horasExtras;
+    public void setNumHorasExtra(double numHorasExtra) {
+		this.numHorasExtra=numHorasExtra;
 	}
     public double getNumHorasExtra(){
         return numHorasExtra;
