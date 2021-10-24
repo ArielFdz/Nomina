@@ -41,13 +41,10 @@ public class Empleado {
         return "Nombre: " + this.nombre + "\nSalario: " + this.salario;
     }
 
-    @Override
     public void calcularSalario(double tarifa){
         salario = getNumHorasTrabajadas() * tarifa;
     }
     public double devolvercalcularSalario() {
         return salario;
-    }
-    
-    
+    }  
 }
