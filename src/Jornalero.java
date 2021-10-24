@@ -13,11 +13,11 @@ public class Jornalero extends Empleado {
     public int getHorasExtras(){
         return horasExtras;
     }
+
     //Salario
     public void calcularSalario( double tarifa){
         double salario;
         salario= (getNumHorasTrabajadas()*tarifa) + (tarifa*2*getHorasExtras());
         setSalario(salario);
     }
-    //2400
 }
