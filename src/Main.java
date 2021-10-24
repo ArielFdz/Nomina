@@ -5,11 +5,11 @@ public class Main{
    double nominaQuincenalTotal=0,nominaQuincenalTotalAdministrador=0,nominaQuincenalTotalJornalero=0;
    double horasTotalEmpleados=0,horasTotalAdministrador=0,horasTotalJornalero=0; 
    int i, contadorAdministrador=0,contadorJornaleros=0;
-   misEmpleados[0]= new Administrador("Wilberth Gamboa", 120);
-   misEmpleados[1]= new Jornalero("Luis Donaldo Colosio", 300);
-   misEmpleados[2]= new Administrador("Jacob Jesús", 200);
-   misEmpleados[3]= new Jornalero("Edgar Cambranes ", 96);
-   misEmpleados[4]= new Administrador("Jorge Carlos", 40);
+   misEmpleados[0]=new Administrador("Wilberth Gamboa", 120);
+   misEmpleados[1]=new Jornalero("Luis Donaldo Colosio", 300);
+   misEmpleados[2]=new Administrador("Jacob Jesús", 200);
+   misEmpleados[3]=new Jornalero("Edgar Cambranes ", 96);
+   misEmpleados[4]=new Administrador("Jorge Carlos", 40);
 
    for(i=0;i<5;i++){
       if(misEmpleados[i] instanceof Administrador){
