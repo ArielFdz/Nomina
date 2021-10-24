@@ -1,5 +1,5 @@
 public class Jornalero extends Empleado{
-    
+
     private double numHorasExtra;
 
     //constructor
@@ -8,7 +8,7 @@ public class Jornalero extends Empleado{
         numHorasExtra=0;
     }
 
-    //sett y gett
+    //set y get
     public void setNumHorasExtra(double numHorasExtra){
 		this.numHorasExtra=numHorasExtra;
 	}

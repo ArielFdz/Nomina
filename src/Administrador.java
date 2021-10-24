@@ -1,5 +1,5 @@
 public class Administrador extends Empleado{
-    
+
     private double incrementoSalario;
 
     //constructor
@@ -7,7 +7,7 @@ public class Administrador extends Empleado{
         super(nombre,numHorasTrabajadas);
     }
     
-    //sett y gett
+    //set y get
     public void setIncrementoSalario(double incrementoSalario){
 		this.incrementoSalario=incrementoSalario;
 	}

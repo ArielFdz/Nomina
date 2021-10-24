@@ -1,5 +1,5 @@
 public class Empleado{
-    
+
     private String nombre;
     private double salario;
     private double numHorasTrabajadas;
@@ -36,7 +36,7 @@ public class Empleado{
         return "Nombre: "+this.nombre+"\nSalario: "+this.salario;
     }
     
-    //se separó el método calcularSalario en sett y gett
+    //se separó el método calcularSalario en set y get
     public void setCalcularSalario(double tarifa){
         salario=getNumHorasTrabajadas()*tarifa;
     }
@@ -44,6 +44,6 @@ public class Empleado{
         return salario;
     }
 
-    //el main se transporta a la clase main, para tener un solo main en el programa
+    //el main se transporta a la clase Main para tener un solo main en el programa
 
 }
