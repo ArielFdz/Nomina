@@ -1,23 +1,20 @@
 public class Jornalero extends Empleado {
-    private int horasExtras;
+    private double numHorasExtra;
     public Jornalero(String nombre, double numHorasTrabajadas){
         super(nombre,numHorasTrabajadas);
-        horasExtras=0;
+        numHorasExtra=0;
     }
 
-    //setter y getter horasExtra
-    public void setHorasExtras(int horasExtras) {
-		this.horasExtras = horasExtras;
+    public void setNumHorasExtra(int horasExtras) {
+		this.numHorasExtra=horasExtras;
 	}
-
-    public int getHorasExtras(){
-        return horasExtras;
+    public double getNumHorasExtra(){
+        return numHorasExtra;
     }
 
-    //Salario
-    public void calcularSalario( double tarifa){
+    public void setCalcularSalario(double tarifa){
         double salario;
-        salario= (getNumHorasTrabajadas()*tarifa) + (tarifa*2*getHorasExtras());
+        salario= (getNumHorasTrabajadas()*tarifa + tarifa*2*getNumHorasExtra());
         setSalario(salario);
     }
 }

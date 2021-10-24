@@ -33,9 +33,9 @@ public class Main{
          
          aux= (Jornalero) misEmpleados[i];
          //Se colocan las horas extras por cada jornalero
-         aux.setHorasExtras(10);
+         aux.setNumHorasExtra(10);
          //Se realiza la sumatoria de las horas de cada jornalero con sus x horas correspondientes 
-         horasTotalJornalero=horasTotalJornalero+misEmpleados[i].getNumHorasTrabajadas()+aux.getHorasExtras();
+         horasTotalJornalero=horasTotalJornalero+misEmpleados[i].getNumHorasTrabajadas()+aux.getNumHorasExtra();
          
          //Insertar la tarifa
          misEmpleados[i].setCalcularSalario(10);
@@ -57,7 +57,7 @@ public class Main{
       if(misEmpleados[i] instanceof Jornalero){
          aux= (Jornalero) misEmpleados[i];
 
-         System.out.println("Horas trabadas extra: "+ aux.getHorasExtras());
+         System.out.println("Horas trabadas extra: "+ aux.getNumHorasExtra());
       }
    }
 
@@ -68,7 +68,7 @@ public class Main{
    System.out.println("Nomina total quincenal trabajadores "+nominaQuincenalTotalAdministrador);
    System.out.println("Nomina total quincenal jornalero "+nominaQuincenalTotalJornalero);
 
-    //NUMERO DE TRABAJADORES
+   //NUMERO DE TRABAJADORES
 
    System.out.println("CANTIDAD DE TRABAJADORES:");
    System.out.println("Administradores: "+contadorAdministrador);
