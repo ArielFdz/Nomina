@@ -1,21 +1,17 @@
 public class Main{
    public static void main(String[] args) {
 
-    
    Empleado[] misEmpleados= new Empleado[5];
-   //variables nomina quincenal
    double nominaQuincenalTotal=0,nominaQuincenalTotalAdministrador=0,nominaQuincenalTotalJornalero=0;
-   //variables horas trabajadas
-   double horasTotalEmpleados=0,horasTotalAdministrador=0,horasTotalJornalero=0;
-   //variables contador tipo empleado 
-   int contadorAdministrador=0,contadorJornaleros=0;
+   double horasTotalEmpleados=0,horasTotalAdministrador=0,horasTotalJornalero=0; 
+   int i, contadorAdministrador=0,contadorJornaleros=0;
    misEmpleados[0]= new Administrador("Wilberth Gamboa", 120);
    misEmpleados[1]= new Jornalero("Luis Donaldo Colosio", 300);
    misEmpleados[2]= new Administrador("Jacob Jesús", 200);
    misEmpleados[3]= new Jornalero("Edgar Cambranes ", 96);
-   misEmpleados[4]= new Administrador("Jorge Carlos", 40); //:0
+   misEmpleados[4]= new Administrador("Jorge Carlos", 40);
 
-   for(int i=0;i<5;i++){
+   for(i=0;i<5;i++){
       if(misEmpleados[i] instanceof Administrador){
          horasTotalAdministrador=horasTotalAdministrador+misEmpleados[i].getNumHorasTrabajadas();
          contadorAdministrador++;
@@ -28,7 +24,7 @@ public class Main{
 
 
    Jornalero aux;
-   for(int i=0;i<5;i++){
+   for(i=0;i<5;i++){
       if(misEmpleados[i] instanceof Jornalero){
          
          aux= (Jornalero) misEmpleados[i];
@@ -51,7 +47,7 @@ public class Main{
 
    System.out.println("DATOS DE LOS EMPLEADOS");
 
-   for(int i=0;i<5;i++){
+   for(i=0;i<5;i++){
       System.out.println(misEmpleados[i].toString());
       System.out.println("Horas trabajadas:"  +misEmpleados[i].getNumHorasTrabajadas());
       if(misEmpleados[i] instanceof Jornalero){
