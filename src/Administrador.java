@@ -6,6 +6,7 @@ public class Administrador extends Empleado{
         super(nombre,numHorasTrabajadas);
     }
     
+    //sett y gett
     public void setIncrementoSalario(double incrementoSalario){
 		this.incrementoSalario=incrementoSalario;
 	}
@@ -13,15 +14,16 @@ public class Administrador extends Empleado{
 		return incrementoSalario;
 	}
     
-	public void setCalcularSalario( double tarifa){
-        double incrementoSalario;
+    //función para calcular el salario del Administrador
+	public void setCalcularSalario(double tarifa){
+        double incrementoSalarioAdministrador;
     
         if (getNumHorasTrabajadas()<80){
-            incrementoSalario=1.2;
+            incrementoSalarioAdministrador=1.2;
         }
         else{
-            incrementoSalario=1.3;
+            incrementoSalarioAdministrador=1.3;
         }
-        setSalario((getNumHorasTrabajadas()*tarifa)*incrementoSalario);
+        setSalario(getNumHorasTrabajadas()*tarifa*incrementoSalarioAdministrador);
     }
 }

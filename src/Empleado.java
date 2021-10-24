@@ -34,11 +34,15 @@ public class Empleado{
     public String toString(){
         return "Nombre: "+this.nombre+"\nSalario: "+this.salario;
     }
-
+    
+    //se separó el método calcularSalario en sett y gett
     public void setCalcularSalario(double tarifa){
         salario=getNumHorasTrabajadas()*tarifa;
     }
     public double getCalcularSalario(){
         return salario;
     }
+
+    //el main se transporta a la clase main, para tener un solo main en el programa
+    
 }
