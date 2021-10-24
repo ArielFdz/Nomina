@@ -1,43 +1,44 @@
 public class Main{
-   public static void main(String[] args) {
+   public static void main(String[] args){
 
-   Empleado[] misEmpleados= new Empleado[5];
+   Empleado[] empleadosDePrueba=new Empleado[5];
+   Jornalero aux;
    double nominaQuincenalTotal=0,nominaQuincenalTotalAdministrador=0,nominaQuincenalTotalJornalero=0;
    double horasTotalEmpleados=0,horasTotalAdministrador=0,horasTotalJornalero=0; 
-   int i, contadorAdministrador=0,contadorJornaleros=0;
-   misEmpleados[0]=new Administrador("Wilberth Gamboa", 120);
-   misEmpleados[1]=new Jornalero("Luis Donaldo Colosio", 300);
-   misEmpleados[2]=new Administrador("Jacob Jesús", 200);
-   misEmpleados[3]=new Jornalero("Edgar Cambranes ", 96);
-   misEmpleados[4]=new Administrador("Jorge Carlos", 40);
+   int i, numeroDeAdministradores=0,numeroDeJornaleros=0;
+   empleadosDePrueba[0]=new Administrador("Wilberth Gamboa", 120);
+   empleadosDePrueba[1]=new Jornalero("Luis Donaldo Colosio", 300);
+   empleadosDePrueba[2]=new Administrador("Jacob Jesús", 200);
+   empleadosDePrueba[3]=new Jornalero("Edgar Cambranes ", 96);
+   empleadosDePrueba[4]=new Administrador("Jorge Carlos", 40);
 
    for(i=0;i<5;i++){
-      if(misEmpleados[i] instanceof Administrador){
-         horasTotalAdministrador=horasTotalAdministrador+misEmpleados[i].getNumHorasTrabajadas();
-         contadorAdministrador++;
+      if(empleadosDePrueba[i] instanceof Administrador){
+         horasTotalAdministrador=horasTotalAdministrador+empleadosDePrueba[i].getNumHorasTrabajadas();
+         numeroDeAdministradores++;
          //PIDE LA TARIFA POR CADA EMPLEADO 
-         misEmpleados[i].setCalcularSalario(10);
+         empleadosDePrueba[i].setCalcularSalario(10);
          //REALIZA LA SUMATORAI DE LAS TARIFAS DE CADA EMPLEADO
-         nominaQuincenalTotalAdministrador= nominaQuincenalTotalAdministrador + misEmpleados[i].getSalario();
+         nominaQuincenalTotalAdministrador= nominaQuincenalTotalAdministrador + empleadosDePrueba[i].getSalario();
       }  
    }
 
 
-   Jornalero aux;
+
    for(i=0;i<5;i++){
-      if(misEmpleados[i] instanceof Jornalero){
+      if(empleadosDePrueba[i] instanceof Jornalero){
          
-         aux= (Jornalero) misEmpleados[i];
+         aux= (Jornalero) empleadosDePrueba[i];
          //Se colocan las horas extras por cada jornalero
          aux.setNumHorasExtra(10);
          //Se realiza la sumatoria de las horas de cada jornalero con sus x horas correspondientes 
-         horasTotalJornalero=horasTotalJornalero+misEmpleados[i].getNumHorasTrabajadas()+aux.getNumHorasExtra();
+         horasTotalJornalero=horasTotalJornalero+empleadosDePrueba[i].getNumHorasTrabajadas()+aux.getNumHorasExtra();
          
          //Insertar la tarifa
-         misEmpleados[i].setCalcularSalario(10);
+         empleadosDePrueba[i].setCalcularSalario(10);
          //Total nomina quuincenal
-         nominaQuincenalTotalJornalero= nominaQuincenalTotalJornalero + misEmpleados[i].getSalario();
-         contadorJornaleros++;
+         nominaQuincenalTotalJornalero= nominaQuincenalTotalJornalero + empleadosDePrueba[i].getSalario();
+         numeroDeJornaleros++;
       }   
    }
 
@@ -48,10 +49,10 @@ public class Main{
    System.out.println("DATOS DE LOS EMPLEADOS");
 
    for(i=0;i<5;i++){
-      System.out.println(misEmpleados[i].toString());
-      System.out.println("Horas trabajadas:"  +misEmpleados[i].getNumHorasTrabajadas());
-      if(misEmpleados[i] instanceof Jornalero){
-         aux= (Jornalero) misEmpleados[i];
+      System.out.println(empleadosDePrueba[i].toString());
+      System.out.println("Horas trabajadas:"  +empleadosDePrueba[i].getNumHorasTrabajadas());
+      if(empleadosDePrueba[i] instanceof Jornalero){
+         aux= (Jornalero) empleadosDePrueba[i];
 
          System.out.println("Horas trabadas extra: "+ aux.getNumHorasExtra());
       }
@@ -67,8 +68,8 @@ public class Main{
    //NUMERO DE TRABAJADORES
 
    System.out.println("CANTIDAD DE TRABAJADORES:");
-   System.out.println("Administradores: "+contadorAdministrador);
-   System.out.println("Jornaleros: "+contadorJornaleros);
+   System.out.println("Administradores: "+numeroDeAdministradores);
+   System.out.println("Jornaleros: "+numeroDeJornaleros);
 
    //HORAS TRABAJADAS 
    System.out.println("CANTIDAD DE HORAS TRABAJADAS");
