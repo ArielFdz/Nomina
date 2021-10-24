@@ -21,7 +21,7 @@ public class Main{
          horasTotalAdministrador=horasTotalAdministrador+misEmpleados[i].getNumHorasTrabajadas();
          contadorAdministrador++;
          //PIDE LA TARIFA POR CADA EMPLEADO 
-         misEmpleados[i].calcularSalario(10);
+         misEmpleados[i].setCalcularSalario(10);
          //REALIZA LA SUMATORAI DE LAS TARIFAS DE CADA EMPLEADO
          nominaQuincenalTotalAdministrador= nominaQuincenalTotalAdministrador + misEmpleados[i].getSalario();
       }  
@@ -39,7 +39,7 @@ public class Main{
          horasTotalJornalero=horasTotalJornalero+misEmpleados[i].getNumHorasTrabajadas()+aux.getHorasExtras();
          
          //Insertar la tarifa
-         misEmpleados[i].calcularSalario(10);
+         misEmpleados[i].setCalcularSalario(10);
          //Total nomina quuincenal
          nominaQuincenalTotalJornalero= nominaQuincenalTotalJornalero + misEmpleados[i].getSalario();
          contadorJornaleros++;

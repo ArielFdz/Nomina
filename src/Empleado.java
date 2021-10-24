@@ -6,32 +6,26 @@ public class Empleado {
     public Empleado(String nombre, double numHorasTrabajadas) {
         this.nombre = nombre;
         this.numHorasTrabajadas = numHorasTrabajadas;
-        
     }
-    //setter and getter name
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-    
     public String getNombre() {
         return this.nombre;
     }
-    //setter y getter salario
+
     public void setSalario(double salario) {
         this.salario = salario;
     
     }
-    
     public double getSalario() {
         return this.salario;
     }
-    
-    //setter y getter horas trabajadas
 
     public void setNumHorasTrabajadas(double numHorasTrabajadas) {
         this.numHorasTrabajadas = numHorasTrabajadas;
     }
-    
     public double getNumHorasTrabajadas() {
         return this.numHorasTrabajadas;
     }
@@ -41,10 +35,10 @@ public class Empleado {
         return "Nombre: " + this.nombre + "\nSalario: " + this.salario;
     }
 
-    public void calcularSalario(double tarifa){
-        salario = getNumHorasTrabajadas() * tarifa;
+    public void setCalcularSalario(double tarifa){
+        salario=getNumHorasTrabajadas() * tarifa;
     }
-    public double devolvercalcularSalario() {
+    public double getCalcularSalario() {
         return salario;
-    }  
+    }
 }

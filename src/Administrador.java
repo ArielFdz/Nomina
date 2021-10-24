@@ -16,7 +16,7 @@ public class Administrador extends Empleado{
     
 
 
-	public void calcularSalario( double tarifa){
+	public void setCalcularSalario( double tarifa){
         double incrementoSalario;
         
         if ( getNumHorasTrabajadas() >= 80){
