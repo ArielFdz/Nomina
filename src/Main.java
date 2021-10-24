@@ -1,5 +1,5 @@
 public class Main{
-    public static void main(String[] args) {
+   public static void main(String[] args) {
 
     
    Empleado[] misEmpleados= new Empleado[5];
@@ -14,7 +14,6 @@ public class Main{
    misEmpleados[2]= new Administrador("Jacob Jesús", 200);
    misEmpleados[3]= new Jornalero("Edgar Cambranes ", 96);
    misEmpleados[4]= new Administrador("Jorge Carlos", 40); //:0
-
 
    for(int i=0;i<5;i++){
       if(misEmpleados[i] instanceof Administrador){

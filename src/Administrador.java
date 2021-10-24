@@ -1,7 +1,6 @@
 public class Administrador extends Empleado{
     private double incrementoSalario;
 
-
     //constructor
     public Administrador(String nombre, double numHorasTrabajadas){
         super(nombre,numHorasTrabajadas);
@@ -14,19 +13,14 @@ public class Administrador extends Empleado{
 		return incrementoSalario;
 	}
     
-
-
 	public void setCalcularSalario( double tarifa){
         double incrementoSalario;
-        
+    
         if ( getNumHorasTrabajadas() >= 80){
-
             incrementoSalario = 1.3;
         }else{
-             incrementoSalario = 1.2;
+            incrementoSalario = 1.2;
         }
-
-
         setSalario((getNumHorasTrabajadas() * tarifa)*incrementoSalario);
     }
 }
