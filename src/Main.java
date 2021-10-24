@@ -2,8 +2,9 @@ public class Main{
    public static void main(String[] args) {
 
    Empleado[] empleadosDePrueba= new Empleado[5];
+   Jornalero aux;
    int i, numeroDeAdministradores,numeroDeJornaleros;
-   double horasTotalEmpleados=0,horasTotalAdministrador=0,horasTotalJornalero=0; 
+   double totalHorasTrabajadas,totalHorasTrabajadasAdministrador,totalHorasTrabajadasJornalero; 
    double totalNomina,totalNominaAdministrador,totalNominaJornalero;
 
    //se inicializan las variables
@@ -12,49 +13,73 @@ public class Main{
    totalNomina=0;
    totalNominaAdministrador=0;
    totalNominaJornalero=0;
+   totalHorasTrabajadas=0;
+   totalHorasTrabajadasAdministrador=0;
+   totalHorasTrabajadasJornalero=0;
    
-   //datos de los empleados que usaremos para probar el funcionamiento del programa 
+   //datos de los empleados que usaremos para probar el funcionamiento del programa
+   //los administradores son horas totales y los jornaleros son horas trabajadas sin contar horas extra 
    empleadosDePrueba[0]=new Administrador("Wilberth Gamboa", 120);
    empleadosDePrueba[1]=new Jornalero("Luis Donaldo Colosio", 300);
    empleadosDePrueba[2]=new Administrador("Jacob Jesús", 200);
    empleadosDePrueba[3]=new Jornalero("Edgar Cambranes ", 96);
    empleadosDePrueba[4]=new Administrador("Jorge Carlos", 40);
 
-
+   //hallar el numero de Administradores
    for(i=0;i<5;i++){
       if(empleadosDePrueba[i] instanceof Administrador){
-         horasTotalAdministrador=horasTotalAdministrador+empleadosDePrueba[i].getNumHorasTrabajadas();
-         //PIDE LA TARIFA POR CADA EMPLEADO 
-         empleadosDePrueba[i].setCalcularSalario(10);
-         //REALIZA LA SUMATORAI DE LAS TARIFAS DE CADA EMPLEADO
-         totalNominaAdministrador= totalNominaAdministrador + empleadosDePrueba[i].getSalario();
          numeroDeAdministradores=numeroDeAdministradores+1;
       }  
    }
 
+   //hallar las horas que trabajaron los administradores
+   for(i=0;i<5;i++){
+      if(empleadosDePrueba[i] instanceof Administrador){
+         totalHorasTrabajadasAdministrador=totalHorasTrabajadasAdministrador+empleadosDePrueba[i].getNumHorasTrabajadas();
+      }  
+   }
 
-   Jornalero aux;
+   //hallar la nomina total de los administradores
+   for(i=0;i<5;i++){
+      if(empleadosDePrueba[i] instanceof Administrador){
+         //ingresamos la tarifa
+         empleadosDePrueba[i].setCalcularSalario(10);
+         totalNominaAdministrador= totalNominaAdministrador + empleadosDePrueba[i].getSalario();
+      }  
+   }
+
+   //hallar el numero de jornaleros
    for(i=0;i<5;i++){
       if(empleadosDePrueba[i] instanceof Jornalero){
-         
-         aux= (Jornalero) empleadosDePrueba[i];
-         //Se colocan las horas extras por cada jornalero
-         aux.setNumHorasExtra(10);
-         //Se realiza la sumatoria de las horas de cada jornalero con sus x horas correspondientes 
-         horasTotalJornalero=horasTotalJornalero+empleadosDePrueba[i].getNumHorasTrabajadas()+aux.getNumHorasExtra();
-         
-         //Insertar la tarifa
-         empleadosDePrueba[i].setCalcularSalario(10);
-         //Total nomina quuincenal
-         totalNominaJornalero= totalNominaJornalero + empleadosDePrueba[i].getSalario();
          numeroDeJornaleros=numeroDeJornaleros+1;
       }   
    }
 
+   //hallar las horas que trabajaron los jornaleros
+   for(i=0;i<5;i++){
+      if(empleadosDePrueba[i] instanceof Jornalero){
+         aux= (Jornalero) empleadosDePrueba[i];
+         //ingresamos las horas extras trabajadas
+         aux.setNumHorasExtra(10);
+         totalHorasTrabajadasJornalero=totalHorasTrabajadasJornalero+empleadosDePrueba[i].getNumHorasTrabajadas()+aux.getNumHorasExtra();
+      }   
+   }
+   
+   //hallar la nomina total de los jornaleros
+   for(i=0;i<5;i++){
+      if(empleadosDePrueba[i] instanceof Jornalero){
+         //ingresamos la tarifa
+         empleadosDePrueba[i].setCalcularSalario(10);
+         totalNominaJornalero= totalNominaJornalero + empleadosDePrueba[i].getSalario();
+      }   
+   }
+
+   //suma total de la nomina y de las horas trabajadas
    totalNomina=totalNominaAdministrador+totalNominaJornalero;
-   horasTotalEmpleados=horasTotalAdministrador+horasTotalJornalero;
+   totalHorasTrabajadas=totalHorasTrabajadasAdministrador+totalHorasTrabajadasJornalero;
 
 
+   //imprimimos todo en pantalla
    System.out.println("DATOS DE LOS EMPLEADOS");
 
    for(i=0;i<5;i++){
@@ -82,9 +107,9 @@ public class Main{
 
    //HORAS TRABAJADAS 
    System.out.println("CANTIDAD DE HORAS TRABAJADAS");
-   System.out.println("Horas totales de los empleados: "+ horasTotalEmpleados);
-   System.out.println("Horas totales de todos los administrador: "+horasTotalAdministrador);
-   System.out.println("Horas totales de los jornaleros: "+horasTotalJornalero);
+   System.out.println("Horas totales de los empleados: "+ totalHorasTrabajadas);
+   System.out.println("Horas totales de todos los administrador: "+totalHorasTrabajadasAdministrador);
+   System.out.println("Horas totales de los jornaleros: "+totalHorasTrabajadasJornalero);
  
    }
 }
