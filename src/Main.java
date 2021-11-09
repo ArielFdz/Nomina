@@ -44,10 +44,6 @@ public class Main{
 
    prueba.ordenar(empleadosDePrueba, tamanioAux);
    prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
-
-
-
-
    }
 
 
