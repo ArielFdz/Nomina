@@ -2,83 +2,73 @@ public class Main{
    public static void main(String[] args){
 
    Empleado[] empleadosDePrueba= new Empleado[4];
-   Jornalero auxiliar;
-   int i, numeroDeAdministradores,numeroDeJornaleros;
-   double totalHorasTrabajadas,totalHorasTrabajadasAdministrador,totalHorasTrabajadasJornalero; 
-   double totalNomina,totalNominaAdministrador,totalNominaJornalero;
-
-   //se inicializan las variables
-   numeroDeAdministradores=0;
-   numeroDeJornaleros=0;
-   totalNomina=0;
-   totalNominaAdministrador=0;
-   totalNominaJornalero=0;
-   totalHorasTrabajadas=0;
-   totalHorasTrabajadasAdministrador=0;
-   totalHorasTrabajadasJornalero=0;
+   inicializarEmpleados(empleadosDePrueba);
+   int tamanioAux=4;
+   Nomina prueba = new Nomina();
    
-   //datos de los empleados que usaremos para probar el funcionamiento del programa
-   //los administradores son horas totales y los jornaleros son horas trabajadas sin contar horas extra
-   empleadosDePrueba[0]=new Jornalero("Juan", 98); 
-   empleadosDePrueba[1]=new Administrador("Daniel", 80);
-   empleadosDePrueba[2]=new Jornalero("Mariana", 100);
-   empleadosDePrueba[3]=new Administrador("Martha", 70);
-
-
-   //hallar el numero de jornaleros
-   for(i=0;i<4;i++){
-      if(empleadosDePrueba[i] instanceof Jornalero){
-         numeroDeJornaleros=numeroDeJornaleros+1;
-      }   
-   }
-
-   //hallar las horas que trabajaron los jornaleros
-   for(i=0;i<4;i++){
-      if(empleadosDePrueba[i] instanceof Jornalero){
-         auxiliar=(Jornalero)empleadosDePrueba[i];
-         //ingresamos las horas extras trabajadas
-         auxiliar.setNumHorasExtra(25);
-         totalHorasTrabajadasJornalero=totalHorasTrabajadasJornalero+empleadosDePrueba[i].getNumHorasTrabajadas()+auxiliar.getNumHorasExtra();
-      }   
-   }
+   //Jornalero auxiliar;
+   //Arreglo global
    
-   //hallar la nomina total de los jornaleros
-   for(i=0;i<4;i++){
-      if(empleadosDePrueba[i] instanceof Jornalero){
-         //ingresamos la tarifa
-         empleadosDePrueba[i].setCalcularSalario(20);
-         totalNominaJornalero=totalNominaJornalero+empleadosDePrueba[i].getSalario();
-      }   
+
+
+   prueba.administradorDatos(empleadosDePrueba, tamanioAux);
+   prueba.jornaleroDatos(empleadosDePrueba, tamanioAux);
+   prueba.sumaTotales();
+   prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
+
+   // ELIMINAR
+   tamanioAux=prueba.borrarDato(empleadosDePrueba, 3, tamanioAux);
+   System.out.println("----------------ELIMINANDO A CAMBRANES------------------");
+   System.out.println();
+   System.out.println();
+
+   prueba.administradorDatos(empleadosDePrueba, tamanioAux);
+   prueba.jornaleroDatos(empleadosDePrueba, tamanioAux);
+   prueba.sumaTotales();
+   prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
+
+   tamanioAux=prueba.agregarDato(empleadosDePrueba, 3, 0, tamanioAux);
+   System.out.println("----------------AGREGANDO NUEVO USARIO------------------");
+   System.out.println();
+   System.out.println();
+
+   prueba.administradorDatos(empleadosDePrueba, tamanioAux);
+   prueba.jornaleroDatos(empleadosDePrueba, tamanioAux);
+   prueba.sumaTotales();
+   prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
+   //administrador
+
+   System.out.println("----------------ORDENANDO------------------");
+   System.out.println();
+   System.out.println();
+
+   prueba.ordenar(empleadosDePrueba, tamanioAux);
+   prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
+
+
+
+
    }
 
-   //hallar el numero de Administradores
-   for(i=0;i<4;i++){
-      if(empleadosDePrueba[i] instanceof Administrador){
-         numeroDeAdministradores=numeroDeAdministradores+1;
-      }  
+
+   public static void inicializarEmpleados(Empleado[] empleadosDePrueba){
+      
+      //datos de los empleados que usaremos para probar el funcionamiento del programa
+      //los administradores son horas totales y los jornaleros son horas trabajadas sin contar horas extra
+      empleadosDePrueba[0]=new Jornalero("Juan", 98); 
+      empleadosDePrueba[1]=new Administrador("Daniel", 80);
+      empleadosDePrueba[2]=new Jornalero("Mariana", 100);
+      empleadosDePrueba[3]=new Administrador("Martha", 70);
    }
 
-   //hallar las horas que trabajaron los administradores
-   for(i=0;i<4;i++){
-      if(empleadosDePrueba[i] instanceof Administrador){
-         totalHorasTrabajadasAdministrador=totalHorasTrabajadasAdministrador+empleadosDePrueba[i].getNumHorasTrabajadas();
-      }  
-   }
+   
+}
 
-   //hallar la nomina total de los administradores
-   for(i=0;i<4;i++){
-      if(empleadosDePrueba[i] instanceof Administrador){
-         //ingresamos la tarifa
-         empleadosDePrueba[i].setCalcularSalario(20);
-         totalNominaAdministrador=totalNominaAdministrador+empleadosDePrueba[i].getSalario();
-      }  
-   }
 
-   //suma total de la nomina y de las horas trabajadas
-   totalNomina=totalNominaAdministrador+totalNominaJornalero;
-   totalHorasTrabajadas=totalHorasTrabajadasAdministrador+totalHorasTrabajadasJornalero;
 
-   //imprimimos datos por trabajador, sea de tipo administrador o jornalero
+
+
+/*/imprimimos datos por trabajador, sea de tipo administrador o jornalero
    System.out.println("Empleados");
    System.out.println("-----------------------------------------------");
    for(i=0;i<4;i++){
@@ -113,9 +103,4 @@ public class Main{
 
    //imprimimos la nomina total
    System.out.println("Nomina total de la empresa: "+totalNomina);
-   System.out.println("-----------------------------------------------");
-
-
- 
-   }
-}
+   System.out.println("-----------------------------------------------");*/

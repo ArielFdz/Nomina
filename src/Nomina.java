@@ -39,7 +39,7 @@ public class Nomina {
         }
 
          //hallar la nomina total de los administradores
-        for(i=0;i<4;i++){
+        for(i=0;i<tamanioAux;i++){
             if(empleadosDePrueba[i] instanceof Administrador){
                 //ingresamos la tarifa
                 empleadosDePrueba[i].setCalcularSalario(20);
@@ -51,14 +51,14 @@ public class Nomina {
 
     public  void jornaleroDatos(Empleado[] empleadosDePrueba,int tamanioAux){
         //hallar el numero de jornaleros
-        for(i=0;i<4;i++){
+        for(i=0;i<tamanioAux;i++){
             if(empleadosDePrueba[i] instanceof Jornalero){
             numeroDeJornaleros=numeroDeJornaleros+1;
             }   
         }
 
         //hallar las horas que trabajaron los jornaleros
-        for(i=0;i<4;i++){
+        for(i=0;i<tamanioAux;i++){
             if(empleadosDePrueba[i] instanceof Jornalero){
                 auxiliar=(Jornalero)empleadosDePrueba[i];
                 //ingresamos las horas extras trabajadas
@@ -68,7 +68,7 @@ public class Nomina {
         }
  
         //hallar la nomina total de los jornaleros
-        for(i=0;i<4;i++){
+        for(i=0;i<tamanioAux;i++){
             if(empleadosDePrueba[i] instanceof Jornalero){
             //ingresamos la tarifa
             empleadosDePrueba[i].setCalcularSalario(20);
@@ -80,103 +80,123 @@ public class Nomina {
     }
     
     
+    //sumatorias
     public void sumaTotales(){
         totalNomina=totalNominaAdministrador+totalNominaJornalero;
         totalHorasTrabajadas=totalHorasTrabajadasAdministrador+totalHorasTrabajadasJornalero;
     }
 
-     
-  
-    public  int borrarDato(Empleado[] misEmpleados,int posicion,int tamanioAux){
+    
+
+
+    //delete
+    public  int borrarDato(Empleado[] empleadosDePrueba,int posicion,int tamanioAux){
         tamanioAux--;
+
         for(int i=posicion;i<tamanioAux;i++){
-           misEmpleados[i]=misEmpleados[i+1];
-  
+           empleadosDePrueba[i]=empleadosDePrueba[i+1];
         }
-  
+
         return tamanioAux;
-     }
-     public  int agregarDato(Empleado[] misEmpleados,int posicion,int selector,int tamanioAux){
+    }
+
+
+    
+    //update/create
+    public  int agregarDato(Empleado[] empleadosDePrueba,int posicion,int selector,int tamanioAux){
         tamanioAux++;
+
+        //Seleccionar si agregar jornalero o administrador
         if(selector==0){
-           misEmpleados[posicion]=new Administrador("Prueba Nuevo Admin", 100);
-  
-  
-        }else if(selector==1){
-           misEmpleados[posicion]=new Jornalero("Prueba Nuevo Jornalero ", 100);
-  
+           empleadosDePrueba[posicion]=new Administrador("Prueba Nuevo Admin", 100);
+        }
+        if(selector==1){
+           empleadosDePrueba[posicion]=new Jornalero("Prueba Nuevo Jornalero ", 100);
         }
         
-        //Seleccionar si agregar jornalero o administrador
-        
-  
-        
-  
         return tamanioAux;
-     }
-     public void ordenar(Empleado[] misEmpleados,int tamanioAux){
+    }
+
+
+
+
+    //order
+    public void ordenar(Empleado[] empleadosDePrueba,int tamanioAux){
         Empleado[] auxObjeto= new Empleado[5];
-        auxObjeto=misEmpleados;
+        auxObjeto=empleadosDePrueba;
         int contador1=0;
         int i;
         
         
         for( i=0;i<tamanioAux;i++){
-            if(misEmpleados[i] instanceof Administrador){
-                auxObjeto[contador1]=misEmpleados[i];
-                
+            if(empleadosDePrueba[i] instanceof Administrador){
+                auxObjeto[contador1]=empleadosDePrueba[i];
                 System.out.println(contador1);
                 contador1++;
-
             }
 
         }
-
         for (i=0; i<tamanioAux;i++){
-            if(misEmpleados[i] instanceof Jornalero){
-                auxObjeto[contador1]=misEmpleados[i];
+            if(empleadosDePrueba[i] instanceof Jornalero){
+                auxObjeto[contador1]=empleadosDePrueba[i];
                 System.out.println(contador1);
-
                 contador1++;
             }
         }
-        misEmpleados=auxObjeto;
+
+        empleadosDePrueba=auxObjeto;
+    }
 
 
-        
-        
 
 
-     }
 
-     public  void imprimirDatos(Empleado[] misEmpleados,int tamanioAux){
-        Jornalero aux;
-        System.out.println("DATOS DE LOS EMPLEADOS");
-        for(int i=0;i<tamanioAux;i++){
-           System.out.println(misEmpleados[i].toString());
-           System.out.println("Horas trabajadas:"+misEmpleados[i].getNumHorasTrabajadas());
-           if(misEmpleados[i] instanceof Jornalero){
-              aux= (Jornalero) misEmpleados[i];
-              System.out.println("Horas trabadas extra: "+ aux.getHorasExtras());
-         }
-      }
-      //Total nomina quincenal
-      //Total nomina quincenal
-     System.out.println("CANTIDAD DE NOMINA QUINCENAL TOTAL: "+nominaQuincenalTotal);
-     System.out.println("Nomina total quincenal trabajadores "+nominaQuincenalTotalAdministrador);
-     System.out.println("Nomina total quincenal jornalero "+nominaQuincenalTotalJornalero);
-  
-      //NUMERO DE TRABAJADORES
-  
-     System.out.println("CANTIDAD DE TRABAJADORES:");
-     System.out.println("Administradores: "+contadorAdministrador);
-     System.out.println("Jornaleros: "+contadorJornaleros);
-  
-     //HORAS TRABAJADAS 
-     System.out.println("CANTIDAD DE HORAS TRABAJADAS");
-     System.out.println("Horas totales de los empleados: "+ horasTotalEmpleados);
-     System.out.println("Horas totales de todos los administrador: "+horasTotalAdministrador);
-     System.out.println("Horas totales de los jornaleros: "+horasTotalJornalero);
+
+
+
+
+
+    public  void imprimirDatos(Empleado[] empleadosDePrueba,int tamanioAux){
+
+        //imprimimos datos por trabajador, sea de tipo administrador o jornalero
+        System.out.println("Empleados");
+        System.out.println("-----------------------------------------------");
+        for(i=0;i<tamanioAux;i++){
+            System.out.println(empleadosDePrueba[i].toString());
+            System.out.println("Numero de horas trabajadas: "+empleadosDePrueba[i].getNumHorasTrabajadas());
+            if(empleadosDePrueba[i] instanceof Jornalero){
+                auxiliar= (Jornalero) empleadosDePrueba[i];
+                System.out.println("Numero de horas extras trabajadas: "+ auxiliar.getNumHorasExtra());
+                System.out.println("Tipo de empleado: Jornalero");
+            }
+            else{
+                System.out.println("Numero de horas extras trabajadas: 0");
+            System.out.println("Tipo de empleado: Administrador");
+            }
+        System.out.println("-----------------------------------------------");
+        }
+    
+   
+        //imprimimos el numero de trabajadores de cada tipo
+        System.out.println("Número total de jornaleros: "+numeroDeJornaleros);
+        System.out.println("Numero total de administradores: "+numeroDeAdministradores);            
+        System.out.println("-----------------------------------------------");
+
+        //imprimimos el numero de horas trabajadas por tipo de empledo y el total  
+        System.out.println("Numero de horas totales trabajadas en la empresa: "+ totalHorasTrabajadas);      
+        System.out.println("Numero de horas totales trabajadas por los jornaleros: "+totalHorasTrabajadasJornalero);            
+        System.out.println("Numero de horas totales trabajadas por los administradores: "+totalHorasTrabajadasAdministrador);
+        System.out.println("-----------------------------------------------");
+
+        //imprimimos la nomina por tipo de empleado
+        System.out.println("Nomina total de los jornaleros: "+totalNominaJornalero);
+        System.out.println("Nomina total de los administradores: "+totalNominaAdministrador);
+        System.out.println("-----------------------------------------------");
+
+        //imprimimos la nomina total
+        System.out.println("Nomina total de la empresa: "+totalNomina);
+        System.out.println("-----------------------------------------------");
+    }
 
     
     
