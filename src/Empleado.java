@@ -1,4 +1,4 @@
-public class Empleado{
+public class Empleado implements Comparable<Empleado>{
 
     private String nombre;
     private double salario;
@@ -45,5 +45,15 @@ public class Empleado{
     }
 
     //el main se transporta a la clase Main para tener un solo main en el programa
-
+    @Override
+    public int compareTo(Empleado o) {
+        if(o.getSalario()>this.getSalario()){
+            return 1;
+        }else if(o.getSalario()<this.getSalario()){
+            return -1;
+        }else{
+            return 0;
+        }
+        
+    } 
 }

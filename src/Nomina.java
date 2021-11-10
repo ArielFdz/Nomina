@@ -1,30 +1,17 @@
 public class Nomina {
 
     private double totalNominaAdministrador,totalHorasTrabajadasAdministrador;
-    
-    //jornalero
     private double totalNominaJornalero,totalHorasTrabajadasJornalero;
     Jornalero auxiliar;
-   
-    //general
     private double totalNomina,totalHorasTrabajadas;
     private int numeroDeAdministradores;
     private int i,numeroDeJornaleros;
 
-    public Nomina(){
-        totalNominaAdministrador=0;
-        totalHorasTrabajadasAdministrador=0;
-        totalNominaJornalero=0;
-        totalHorasTrabajadasJornalero=0;
-        totalNomina=0;
-        totalHorasTrabajadas=0;
-        numeroDeAdministradores=0;
-        numeroDeJornaleros=0;
-    }
-
-
     public void administradorDatos(Empleado[] empleadosDePrueba,int tamanioAux){
         //hallar el numero de Administradores
+        numeroDeAdministradores=0;
+        totalHorasTrabajadasAdministrador=0;
+        totalNominaAdministrador=0;
         for(i=0;i<tamanioAux;i++){
             if(empleadosDePrueba[i] instanceof Administrador){
             numeroDeAdministradores=numeroDeAdministradores+1;
@@ -48,8 +35,11 @@ public class Nomina {
         }
     }
 
-
     public  void jornaleroDatos(Empleado[] empleadosDePrueba,int tamanioAux){
+
+        numeroDeJornaleros=0;
+        totalHorasTrabajadasJornalero=0;
+        totalNominaJornalero=0;
         //hallar el numero de jornaleros
         for(i=0;i<tamanioAux;i++){
             if(empleadosDePrueba[i] instanceof Jornalero){
@@ -79,9 +69,10 @@ public class Nomina {
       
     }
     
-    
     //sumatoria de horas y nomina de los usuarios
     public void totalHorasNomina(){
+        totalNomina=0;
+        totalHorasTrabajadas=0;
         totalNomina=totalNominaAdministrador+totalNominaJornalero;
         totalHorasTrabajadas=totalHorasTrabajadasAdministrador+totalHorasTrabajadasJornalero;
     }

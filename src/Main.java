@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main{
    public static void main(String[] args){
 
@@ -35,7 +37,9 @@ public class Main{
    System.out.println("\n");
    System.out.println("----------------EMPLEADOS ORDENADOS POR TIPO------------------");
    System.out.println("\n");
-   empleadosDePrueba=prueba.ordenar(empleadosDePrueba, tamanioAux);
+   Arrays.sort(empleadosDePrueba);
+
+   //empleadosDePrueba=prueba.ordenar(empleadosDePrueba, tamanioAux);//
    prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
    }
 
