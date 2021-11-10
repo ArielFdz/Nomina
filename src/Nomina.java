@@ -121,9 +121,8 @@ public class Nomina {
 
 
     //order
-    public void ordenar(Empleado[] empleadosDePrueba,int tamanioAux){
+    public Empleado[] ordenar(Empleado[] empleadosDePrueba,int tamanioAux){
         Empleado[] auxObjeto= new Empleado[5];
-        auxObjeto=empleadosDePrueba;
         int contador1=0;
         int i;
         
@@ -131,7 +130,6 @@ public class Nomina {
         for( i=0;i<tamanioAux;i++){
             if(empleadosDePrueba[i] instanceof Administrador){
                 auxObjeto[contador1]=empleadosDePrueba[i];
-                System.out.println(contador1);
                 contador1++;
             }
 
@@ -139,12 +137,11 @@ public class Nomina {
         for (i=0; i<tamanioAux;i++){
             if(empleadosDePrueba[i] instanceof Jornalero){
                 auxObjeto[contador1]=empleadosDePrueba[i];
-                System.out.println(contador1);
                 contador1++;
             }
         }
 
-        empleadosDePrueba=auxObjeto;
+        return auxObjeto;
     }
 
 
@@ -155,7 +152,7 @@ public class Nomina {
 
 
 
-    
+
     public  void imprimirDatos(Empleado[] empleadosDePrueba,int tamanioAux){
 
         //imprimimos datos por trabajador, sea de tipo administrador o jornalero

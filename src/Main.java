@@ -35,7 +35,7 @@ public class Main{
    System.out.println("\n");
    System.out.println("----------------EMPLEADOS ORDENADOS POR TIPO------------------");
    System.out.println("\n");
-   prueba.ordenar(empleadosDePrueba, tamanioAux);
+   empleadosDePrueba=prueba.ordenar(empleadosDePrueba, tamanioAux);
    prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
    }
 
