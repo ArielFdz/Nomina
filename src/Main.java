@@ -11,7 +11,7 @@ public class Main{
    System.out.println("\n");
    prueba.administradorDatos(empleadosDePrueba, tamanioAux);
    prueba.jornaleroDatos(empleadosDePrueba, tamanioAux);
-   prueba.sumaTotales();
+   prueba.totalHorasNomina();
    prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
 
    System.out.println("\n");
@@ -20,7 +20,7 @@ public class Main{
    tamanioAux=prueba.borrarDato(empleadosDePrueba, 3, tamanioAux);
    prueba.administradorDatos(empleadosDePrueba, tamanioAux);
    prueba.jornaleroDatos(empleadosDePrueba, tamanioAux);
-   prueba.sumaTotales();
+   prueba.totalHorasNomina();
    prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
 
    System.out.println("\n");
@@ -29,7 +29,7 @@ public class Main{
    tamanioAux=prueba.agregarDato(empleadosDePrueba, 3, 0, tamanioAux);
    prueba.administradorDatos(empleadosDePrueba, tamanioAux);
    prueba.jornaleroDatos(empleadosDePrueba, tamanioAux);
-   prueba.sumaTotales();
+   prueba.totalHorasNomina();
    prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
 
    System.out.println("\n");
@@ -49,6 +49,7 @@ public class Main{
       empleadosDePrueba[3]=new Administrador("Martha", 70);
    }
 }
+
 
 
 

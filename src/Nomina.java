@@ -80,16 +80,13 @@ public class Nomina {
     }
     
     
-    //sumatorias
-    public void sumaTotales(){
+    //sumatoria de horas y nomina de los usuarios
+    public void totalHorasNomina(){
         totalNomina=totalNominaAdministrador+totalNominaJornalero;
         totalHorasTrabajadas=totalHorasTrabajadasAdministrador+totalHorasTrabajadasJornalero;
     }
 
-    
-
-
-    //delete
+    //eliminar usuario
     public  int borrarDato(Empleado[] empleadosDePrueba,int posicion,int tamanioAux){
         tamanioAux--;
 
@@ -100,9 +97,7 @@ public class Nomina {
         return tamanioAux;
     }
 
-
-    
-    //update/create
+    //actualizar o crear ususario
     public  int agregarDato(Empleado[] empleadosDePrueba,int posicion,int selector,int tamanioAux){
         tamanioAux++;
 
@@ -117,12 +112,9 @@ public class Nomina {
         return tamanioAux;
     }
 
-
-
-
-    //order
+    //ordenar usuarios
     public Empleado[] ordenar(Empleado[] empleadosDePrueba,int tamanioAux){
-        Empleado[] auxObjeto= new Empleado[5];
+        Empleado[] auxObjeto= new Empleado[4];
         int contador1=0;
         int i;
         
@@ -144,15 +136,7 @@ public class Nomina {
         return auxObjeto;
     }
 
-
-
-
-
-
-
-
-
-
+    //imprimir datos
     public  void imprimirDatos(Empleado[] empleadosDePrueba,int tamanioAux){
 
         //imprimimos datos por trabajador, sea de tipo administrador o jornalero
