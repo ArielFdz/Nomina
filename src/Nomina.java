@@ -155,12 +155,10 @@ public class Nomina {
 
 
 
-
+    
     public  void imprimirDatos(Empleado[] empleadosDePrueba,int tamanioAux){
 
         //imprimimos datos por trabajador, sea de tipo administrador o jornalero
-        System.out.println("Empleados");
-        System.out.println("-----------------------------------------------");
         for(i=0;i<tamanioAux;i++){
             System.out.println(empleadosDePrueba[i].toString());
             System.out.println("Numero de horas trabajadas: "+empleadosDePrueba[i].getNumHorasTrabajadas());
@@ -176,7 +174,6 @@ public class Nomina {
         System.out.println("-----------------------------------------------");
         }
     
-   
         //imprimimos el numero de trabajadores de cada tipo
         System.out.println("Número total de jornaleros: "+numeroDeJornaleros);
         System.out.println("Numero total de administradores: "+numeroDeAdministradores);            
@@ -197,7 +194,4 @@ public class Nomina {
         System.out.println("Nomina total de la empresa: "+totalNomina);
         System.out.println("-----------------------------------------------");
     }
-
-    
-    
 }

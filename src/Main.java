@@ -6,49 +6,41 @@ public class Main{
    int tamanioAux=4;
    Nomina prueba = new Nomina();
    
-   //Jornalero auxiliar;
-   //Arreglo global
-   
-
-
+   System.out.println("\n");
+   System.out.println("----------------EMPLEADOS ORIGINALES------------------");
+   System.out.println("\n");
    prueba.administradorDatos(empleadosDePrueba, tamanioAux);
    prueba.jornaleroDatos(empleadosDePrueba, tamanioAux);
    prueba.sumaTotales();
    prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
 
-   // ELIMINAR
+   System.out.println("\n");
+   System.out.println("----------------EMPLEADOS ELIMINANDO A UN USUARIO------------------");
+   System.out.println("\n");
    tamanioAux=prueba.borrarDato(empleadosDePrueba, 3, tamanioAux);
-   System.out.println("----------------ELIMINANDO A CAMBRANES------------------");
-   System.out.println();
-   System.out.println();
-
    prueba.administradorDatos(empleadosDePrueba, tamanioAux);
    prueba.jornaleroDatos(empleadosDePrueba, tamanioAux);
    prueba.sumaTotales();
    prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
 
+   System.out.println("\n");
+   System.out.println("----------------EMPLEADOS AGREGANDO A UN USARIO------------------");
+   System.out.println("\n");
    tamanioAux=prueba.agregarDato(empleadosDePrueba, 3, 0, tamanioAux);
-   System.out.println("----------------AGREGANDO NUEVO USARIO------------------");
-   System.out.println();
-   System.out.println();
-
    prueba.administradorDatos(empleadosDePrueba, tamanioAux);
    prueba.jornaleroDatos(empleadosDePrueba, tamanioAux);
    prueba.sumaTotales();
    prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
-   //administrador
 
-   System.out.println("----------------ORDENANDO------------------");
-   System.out.println();
-   System.out.println();
-
+   System.out.println("\n");
+   System.out.println("----------------EMPLEADOS ORDENADOS POR TIPO------------------");
+   System.out.println("\n");
    prueba.ordenar(empleadosDePrueba, tamanioAux);
    prueba.imprimirDatos(empleadosDePrueba, tamanioAux);
    }
 
 
    public static void inicializarEmpleados(Empleado[] empleadosDePrueba){
-      
       //datos de los empleados que usaremos para probar el funcionamiento del programa
       //los administradores son horas totales y los jornaleros son horas trabajadas sin contar horas extra
       empleadosDePrueba[0]=new Jornalero("Juan", 98); 
@@ -56,8 +48,6 @@ public class Main{
       empleadosDePrueba[2]=new Jornalero("Mariana", 100);
       empleadosDePrueba[3]=new Administrador("Martha", 70);
    }
-
-   
 }
 
 
