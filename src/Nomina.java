@@ -7,26 +7,27 @@ public class Nomina {
     private int numeroDeAdministradores;
     private int i,numeroDeJornaleros;
 
-    public void administradorDatos(Empleado[] empleadosDePrueba,int tamanioAux){
-        //hallar el numero de Administradores
+    public void informacionAdministrador(Empleado[] empleadosDePrueba,int tamanioVector){
         numeroDeAdministradores=0;
         totalHorasTrabajadasAdministrador=0;
         totalNominaAdministrador=0;
-        for(i=0;i<tamanioAux;i++){
+
+        //hallar el numero de Administradores
+        for(i=0;i<tamanioVector;i++){
             if(empleadosDePrueba[i] instanceof Administrador){
             numeroDeAdministradores=numeroDeAdministradores+1;
             }  
         }
 
         //hallar las horas que trabajaron los administradores
-        for(i=0;i<tamanioAux;i++){
+        for(i=0;i<tamanioVector;i++){
             if(empleadosDePrueba[i] instanceof Administrador){
                 totalHorasTrabajadasAdministrador=totalHorasTrabajadasAdministrador+empleadosDePrueba[i].getNumHorasTrabajadas();
             }  
         }
 
          //hallar la nomina total de los administradores
-        for(i=0;i<tamanioAux;i++){
+        for(i=0;i<tamanioVector;i++){
             if(empleadosDePrueba[i] instanceof Administrador){
                 //ingresamos la tarifa
                 empleadosDePrueba[i].setCalcularSalario(20);
@@ -35,20 +36,20 @@ public class Nomina {
         }
     }
 
-    public  void jornaleroDatos(Empleado[] empleadosDePrueba,int tamanioAux){
-
+    public  void informacionJornaleros(Empleado[] empleadosDePrueba,int tamanioVector){
         numeroDeJornaleros=0;
         totalHorasTrabajadasJornalero=0;
         totalNominaJornalero=0;
+
         //hallar el numero de jornaleros
-        for(i=0;i<tamanioAux;i++){
+        for(i=0;i<tamanioVector;i++){
             if(empleadosDePrueba[i] instanceof Jornalero){
             numeroDeJornaleros=numeroDeJornaleros+1;
             }   
         }
 
         //hallar las horas que trabajaron los jornaleros
-        for(i=0;i<tamanioAux;i++){
+        for(i=0;i<tamanioVector;i++){
             if(empleadosDePrueba[i] instanceof Jornalero){
                 auxiliar=(Jornalero)empleadosDePrueba[i];
                 //ingresamos las horas extras trabajadas
@@ -58,15 +59,13 @@ public class Nomina {
         }
  
         //hallar la nomina total de los jornaleros
-        for(i=0;i<tamanioAux;i++){
+        for(i=0;i<tamanioVector;i++){
             if(empleadosDePrueba[i] instanceof Jornalero){
             //ingresamos la tarifa
             empleadosDePrueba[i].setCalcularSalario(20);
             totalNominaJornalero=totalNominaJornalero+empleadosDePrueba[i].getSalario();
             }      
         }
-        
-      
     }
     
     //sumatoria de horas y nomina de los usuarios
@@ -78,46 +77,46 @@ public class Nomina {
     }
 
     //eliminar usuario
-    public  int borrarDato(Empleado[] empleadosDePrueba,int posicion,int tamanioAux){
-        tamanioAux--;
+    public  int borrarEmpleado(Empleado[] empleadosDePrueba,int posicion,int tamanioVector){
+        tamanioVector--;
 
-        for(int i=posicion;i<tamanioAux;i++){
+        for(int i=posicion;i<tamanioVector;i++){
            empleadosDePrueba[i]=empleadosDePrueba[i+1];
         }
 
-        return tamanioAux;
+        return tamanioVector;
     }
 
     //actualizar o crear ususario
-    public  int agregarDato(Empleado[] empleadosDePrueba,int posicion,int selector,int tamanioAux){
-        tamanioAux++;
+    public  int agregarEmpleado(Empleado[] empleadosDePrueba,int posicion,int selector,int tamanioVector){
+        tamanioVector++;
 
         //Seleccionar si agregar jornalero o administrador
         if(selector==0){
-           empleadosDePrueba[posicion]=new Administrador("Prueba Nuevo Admin", 100);
+           empleadosDePrueba[posicion]=new Administrador("David Medina", 88);
         }
         if(selector==1){
-           empleadosDePrueba[posicion]=new Jornalero("Prueba Nuevo Jornalero ", 100);
+           empleadosDePrueba[posicion]=new Jornalero("Carlos Vergara", 123);
         }
         
-        return tamanioAux;
+        return tamanioVector;
     }
 
     //ordenar usuarios
-    public Empleado[] ordenar(Empleado[] empleadosDePrueba,int tamanioAux){
+    public Empleado[] ordenarEmpleados(Empleado[] empleadosDePrueba,int tamanioVector){
         Empleado[] auxObjeto= new Empleado[4];
         int contador1=0;
         int i;
         
         
-        for( i=0;i<tamanioAux;i++){
+        for( i=0;i<tamanioVector;i++){
             if(empleadosDePrueba[i] instanceof Administrador){
                 auxObjeto[contador1]=empleadosDePrueba[i];
                 contador1++;
             }
 
         }
-        for (i=0; i<tamanioAux;i++){
+        for (i=0; i<tamanioVector;i++){
             if(empleadosDePrueba[i] instanceof Jornalero){
                 auxObjeto[contador1]=empleadosDePrueba[i];
                 contador1++;
@@ -128,10 +127,10 @@ public class Nomina {
     }
 
     //imprimir datos
-    public  void imprimirDatos(Empleado[] empleadosDePrueba,int tamanioAux){
+    public  void imprimirInformacion(Empleado[] empleadosDePrueba,int tamanioVector){
 
         //imprimimos datos por trabajador, sea de tipo administrador o jornalero
-        for(i=0;i<tamanioAux;i++){
+        for(i=0;i<tamanioVector;i++){
             System.out.println(empleadosDePrueba[i].toString());
             System.out.println("Numero de horas trabajadas: "+empleadosDePrueba[i].getNumHorasTrabajadas());
             if(empleadosDePrueba[i] instanceof Jornalero){

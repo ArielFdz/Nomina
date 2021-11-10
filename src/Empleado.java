@@ -54,6 +54,5 @@ public class Empleado implements Comparable<Empleado>{
         }else{
             return 0;
         }
-        
     } 
 }
